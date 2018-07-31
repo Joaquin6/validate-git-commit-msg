@@ -10,3 +10,4 @@ npm-debug.log
 typings/
 *sublime-*
 docs/
+package-lock.json

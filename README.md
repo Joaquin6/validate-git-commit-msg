@@ -1,4 +1,4 @@
-# Validate Commit
+# Validate Git Commit Msg
 
 [![CircleCI](https://circleci.com/gh/Joaquin6/validate-git-commit-msg/tree/master.svg?style=svg)](https://circleci.com/gh/Joaquin6/validate-git-commit-msg/tree/master)
 [![NPM version][npm-image]][npm-url]
