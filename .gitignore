@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+logs
+*.log
+node_modules
+dist
+tmp
+coverage
+npm-debug.log
+typings/
+*sublime-*
+docs/

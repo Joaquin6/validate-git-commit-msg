@@ -1,0 +1,5 @@
+[Component]: Short Description longer than 72 characters. blah blah blah blah blah blah.
+
+Fixes #xxx
+Closez gh-yyy
+References #zzz

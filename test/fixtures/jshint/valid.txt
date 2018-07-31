@@ -1,0 +1,5 @@
+[[DOCS]] Awesome JS docs
+
+This commit introduces the JS docs for APIs.
+
+Closes #1

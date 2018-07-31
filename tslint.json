@@ -1,0 +1,17 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "max-line-length": {
+      "options": [
+        100
+      ]
+    },
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "trailing-comma": [
+      false
+    ]
+  }
+}

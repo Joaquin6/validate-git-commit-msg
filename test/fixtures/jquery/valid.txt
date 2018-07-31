@@ -1,0 +1,7 @@
+Component: Short Description
+
+Optional Long Description
+
+Fixes #xxx
+Closes gh-yyy
+Ref #zzz
