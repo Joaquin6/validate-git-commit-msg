@@ -10,7 +10,7 @@ export const ember: Preset = {
     const GIT_MESSAGE: string = "(.*)";
     const VALID_CHANNELS: string[] = ["canary", "beta", "release"];
 
-    const PATTERN: RegExp = new RegExp(`^\\[${TAG} ${MESSAGE}\\] ${GIT_MESSAGE}`);
+    let PATTERN: RegExp = new RegExp(`^\\[${TAG} ${MESSAGE}\\] ${GIT_MESSAGE}`);
 
     // ember only cares about the first line
     message = message
@@ -21,12 +21,16 @@ export const ember: Preset = {
     // match[1] = <tag>
     // match[2] = <message>
     // match[3] = <git-message>
-    const match: RegExpExecArray = PATTERN.exec(message);
+    let match: RegExpExecArray = PATTERN.exec(message);
+
+    if (!match) {
+      PATTERN = new RegExp(`^\\[${TAG}\\] ${GIT_MESSAGE}`);
+      match = PATTERN.exec(message);
+    }
 
     if (!match) {
       log('Message does not match "[<tag> <message>] <git-message>"', "error");
       log(`Given: "${message}".`, "info");
-
       return false;
     }
 
