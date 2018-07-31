@@ -139,6 +139,7 @@ describe("presets", function() {
       expect(validate("[FEATURE query-params-new] Message")).to.be.true;
       expect(validate("[BUGFIX beta] Message")).to.be.true;
       expect(validate("[SECURITY CVE-111-1111] Message")).to.be.true;
+      expect(validate("[FEATURE] Message")).to.be.true;
     });
 
     it("should handle multiline commits", function() {
