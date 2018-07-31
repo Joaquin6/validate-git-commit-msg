@@ -1,8 +1,6 @@
 # Validate Commit
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/willsoto/validate-commit.svg)](https://greenkeeper.io/)
-[![CircleCI](https://circleci.com/gh/willsoto/validate-commit.svg?style=svg)](https://circleci.com/gh/willsoto/validate-commit)
-
+[![CircleCI](https://circleci.com/gh/Joaquin6/validate-git-commit-msg/tree/master.svg?style=svg)](https://circleci.com/gh/Joaquin6/validate-git-commit-msg/tree/master)
 [![NPM version][npm-image]][npm-url]
 [![Downloads][download-badge]][npm-url]
 
@@ -139,7 +137,7 @@ This module, like many others, installs an executable in **./node_modules/.bin**
 
 ## License
 
-Apache-2.0 © [Joaquin Briceno](http://github.com/willsoto)
+Apache-2.0 © [Joaquin Briceno](http://github.com/joaquin6)
 
 [npm-url]: https://npmjs.org/package/validate-commit
 [npm-image]: https://img.shields.io/npm/v/validate-commit.svg?style=flat-square
