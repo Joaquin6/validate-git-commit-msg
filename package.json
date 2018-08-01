@@ -1,6 +1,6 @@
 {
   "name": "validate-git-commit-msg",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Validate commit messages according to various presets",
   "main": "dist/index.js",
   "author": {
