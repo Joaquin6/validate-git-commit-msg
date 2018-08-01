@@ -66,8 +66,7 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="validate-git-commit-msg">Validate Git Commit Msg</h1>
 				<p><a href="https://circleci.com/gh/Joaquin6/validate-git-commit-msg/tree/master"><img src="https://circleci.com/gh/Joaquin6/validate-git-commit-msg/tree/master.svg?style=svg" alt="CircleCI"></a>
-					<a href="https://npmjs.org/package/validate-commit"><img src="https://img.shields.io/npm/v/validate-commit.svg?style=flat-square" alt="NPM version"></a>
-				<a href="https://npmjs.org/package/validate-commit"><img src="http://img.shields.io/npm/dm/validate-commit.svg?style=flat-square" alt="Downloads"></a></p>
+				<a href="https://npmjs.org/package/validate-git-commit-msg"><img src="https://img.shields.io/npm/v/validate-git-commit-msg.svg?style=flat-square" alt="NPM version"></a></p>
 				<blockquote>
 					<p>Validate commit messages according to various presets</p>
 				</blockquote>
@@ -75,7 +74,7 @@
 					<img src="./example.gif">
 				</p>
 				<h2 id="install">Install</h2>
-				<pre><code class="lang-sh">npm install validate-commit --save-dev
+				<pre><code class="lang-sh">yarn add validate-git-commit-msg -D
 </code></pre>
 				<h2 id="features">Features</h2>
 				<p>Even though there are a couple of other packages that do this, this one has a few quality of life changes.</p>
@@ -99,29 +98,29 @@
 				<h3 id="with-husky">With Husky</h3>
 				<p>E.g., using <a href="https://www.npmjs.com/package/husky">Husky</a>.</p>
 				<pre><code class="lang-json">&quot;scripts&quot;: {
-  &quot;commitmsg&quot;: &quot;validate-commit-msg&quot;
+  &quot;commitmsg&quot;: &quot;validate-git-commit-msg&quot;
 }
 </code></pre>
 				<h3 id="from-cli">From CLI</h3>
-				<pre><code class="lang-bash">$ validate-commit-msg <span class="hljs-string">'chore(package): some message'</span>
-$ validate-commit-msg -p eslint <span class="hljs-string">'New: Awesome feature'</span>
-$ validate-commit-msg -p ember <span class="hljs-string">'[DOC beta] Update CONTRIBUTING.md'</span>
-$ validate-commit-msg -p jshint <span class="hljs-string">'[[DOCS]] Awesome JS docs'</span>
-$ ...
+				<pre><code class="lang-bash">validate-git-commit-msg <span class="hljs-string">'chore(package): some message'</span>
+validate-git-commit-msg -p eslint <span class="hljs-string">'New: Awesome feature'</span>
+validate-git-commit-msg -p ember <span class="hljs-string">'[DOC beta] Update CONTRIBUTING.md'</span>
+validate-git-commit-msg -p jshint <span class="hljs-string">'[[DOCS]] Awesome JS docs'</span>
+...
 </code></pre>
 				<p>When a wrong commit message is given it outputs an explaination.</p>
-				<pre><code class="lang-bash">$ validate-commit-msg <span class="hljs-string">'unknown(something): wrong'</span>
+				<pre><code class="lang-bash">validate-git-commit-msg <span class="hljs-string">'unknown(something): wrong'</span>
 <span class="hljs-comment"># 'unknown' is not an allowed type!</span>
 <span class="hljs-comment"># Valid types are: feat, fix, docs, style, refactor, perf, test, chore, revert</span>
 </code></pre>
 				<p>However you can mute it:</p>
-				<pre><code class="lang-bash">$ validate-commit-msg -s <span class="hljs-string">'unknown(something): wrong'</span>
+				<pre><code class="lang-bash">validate-git-commit-msg -s <span class="hljs-string">'unknown(something): wrong'</span>
 </code></pre>
 				<p>Validate a commit with .git directory in another location</p>
-				<pre><code class="lang-bash">$ validate-commit-msg --mf ../../some/.git/module/COMMIT_EDITMSG
+				<pre><code class="lang-bash">validate-git-commit-msg --mf ../../some/.git/module/COMMIT_EDITMSG
 </code></pre>
 				<h3 id="within-node">Within node</h3>
-				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> validateCommit = <span class="hljs-built_in">require</span>(<span class="hljs-string">'validate-commit'</span>).validateMessage;
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> validateCommit = <span class="hljs-built_in">require</span>(<span class="hljs-string">'validate-git-commit-msg'</span>).validateMessage;
 validateCommit(<span class="hljs-string">'chore(package): some message'</span>); <span class="hljs-comment">// &gt; true</span>
 validateCommit(<span class="hljs-string">'New: Awesome'</span>, { <span class="hljs-attr">preset</span>: <span class="hljs-string">'eslint'</span> }); <span class="hljs-comment">// &gt; true</span>
 validateCommit(<span class="hljs-string">'Unk: Awesome'</span>, { <span class="hljs-attr">preset</span>: <span class="hljs-string">'eslint'</span> }); <span class="hljs-comment">// &gt; false</span>
@@ -132,31 +131,34 @@ validateCommit(<span class="hljs-string">'Unk: Awesome'</span>, { <span class="h
 </code></pre>
 				<h2 id="api">API</h2>
 				<h3 id="javascript">JavaScript</h3>
-				<pre><code>validateMessage(<span class="hljs-keyword">message</span>: <span class="hljs-keyword">string</span>, ?options: <span class="hljs-keyword">object</span>)
-</code></pre><pre><code>validateMessageFromFile(<span class="hljs-keyword">file</span>: <span class="hljs-keyword">string</span>, ?options: <span class="hljs-keyword">object</span>)
-</code></pre><h3 id="cli">CLI</h3>
-				<p>This module, like many others, installs an executable in <strong>./node_modules/.bin</strong>.</p>
-				<pre><code class="lang-bash">~./node_modules/.bin$ ./validate-commit-msg
+				<pre><code class="lang-js">validateMessage(message: string, ?options: object)
 </code></pre>
-				<pre><code>  <span class="hljs-attribute">Usage</span>: validate-commit-msg [options] [command]
+				<pre><code class="lang-js">validateMessageFromFile(file: string, ?options: object)
+</code></pre>
+				<h3 id="cli">CLI</h3>
+				<p>This module, like many others, installs an executable in <strong>./node_modules/.bin</strong>.</p>
+				<pre><code class="lang-bash">~./node_modules/.bin./validate-git-commit-msg
+</code></pre>
+				<pre><code class="lang-bash">  Usage: validate-git-commit-msg [options] [<span class="hljs-built_in">command</span>]
 
-<span class="vim">
-  Command<span class="hljs-variable">s:</span>
 
-    validate-commit-msg <span class="hljs-symbol">&lt;message&gt;</span>  validate <span class="hljs-keyword">a</span> message
-    <span class="hljs-keyword">help</span> [cmd]                     <span class="hljs-keyword">display</span> <span class="hljs-keyword">help</span> <span class="hljs-keyword">for</span> [cmd]
+  Commands:
 
-  Validate commit <span class="hljs-keyword">messages</span> according <span class="hljs-keyword">to</span> various presets
+    validate-git-commit-msg &lt;message&gt;  validate a message
+    <span class="hljs-built_in">help</span> [cmd]                     display <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> [cmd]
 
-  Option<span class="hljs-variable">s:</span>
+  Validate commit messages according to various presets
 
-    -h, --<span class="hljs-keyword">help</span>             output usage information
-    -V, --<span class="hljs-keyword">version</span>          output the <span class="hljs-keyword">version</span> <span class="hljs-keyword">number</span>
-    -<span class="hljs-keyword">p</span>, --preset <span class="hljs-symbol">&lt;preset&gt;</span>  specify <span class="hljs-keyword">a</span> preset (angular|atom|eslint|ember|jquery|jshint) [angular]
-    -s, --<span class="hljs-keyword">silent</span>           mute <span class="hljs-built_in">log</span> <span class="hljs-keyword">messages</span> [false]
-    --mf --msgfile         relative path <span class="hljs-keyword">to</span> COMMIT_EDITMSG <span class="hljs-keyword">file</span></span>
-</code></pre><h3 id="development">Development</h3>
-				<p><code>npm i</code></p>
+  Options:
+
+    -h, --<span class="hljs-built_in">help</span>             output usage information
+    -V, --version          output the version number
+    -p, --preset &lt;preset&gt;  specify a preset (angular|atom|eslint|ember|jquery|jshint) [angular]
+    -s, --silent           mute <span class="hljs-built_in">log</span> messages [<span class="hljs-literal">false</span>]
+    --mf --msgfile         relative path to COMMIT_EDITMSG file
+</code></pre>
+				<h3 id="development">Development</h3>
+				<p><code>yarn install</code></p>
 				<h2 id="license">License</h2>
 				<p>Apache-2.0 © <a href="http://github.com/joaquin6">Joaquin Briceno</a></p>
 			</div>
@@ -196,6 +198,9 @@ validateCommit(<span class="hljs-string">'Unk: Awesome'</span>, { <span class="h
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="modules/_presets_jshint_.html">"presets/jshint"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_presets_semver_.html">"presets/semver"</a>
 					</li>
 				</ul>
 			</nav>
