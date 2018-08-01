@@ -6,13 +6,13 @@ var isFile = require('is-file');
 var validate = require('../dist');
 
 var argv = yargs
-  .usage('validate-commit-msg <message>')
+  .usage('validate-git-commit-msg <message>')
   .option('preset', {
     alias: 'p',
     type: 'string',
-    default: 'angular',
+    default: 'semver',
     description: 'specify a preset',
-    choices: ['angular', 'atom', 'eslint', 'ember', 'jquery', 'jshint']
+    choices: ['angular', 'atom', 'eslint', 'ember', 'jquery', 'jshint', 'semver']
   })
   .option('silent', {
     alias: 's',
@@ -51,7 +51,7 @@ if (message === undefined) {
   }
 
   var commitMsgFile =  msgFile ? path.resolve(workspaceRoot , msgFile) : path.resolve(gitFolder, 'COMMIT_EDITMSG');
-    
+
   valid = validate.validateMessageFromFile(commitMsgFile, options);
 } else {
   if (isFile(message)) {

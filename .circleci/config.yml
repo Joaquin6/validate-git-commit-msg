@@ -31,5 +31,3 @@ jobs:
       # run tests!
       - run: yarn test
       - run: yarn lint
-        # https://github.com/greenkeeperio/greenkeeper-lockfile#setup
-      - run: npx greenkeeper-lockfile-update

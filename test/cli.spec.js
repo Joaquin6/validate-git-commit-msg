@@ -1,17 +1,15 @@
-import { exec, execSync } from "child_process";
 import path from "path";
-
-import { expect } from "chai";
-import "mocha-sinon";
-
-const pathToCLI = path.resolve(__dirname, "..", "bin", "index.js");
+import { exec, execSync } from "child_process";
 
 describe("cli", function() {
+  const pathToCLI = path.resolve(__dirname, "..", "bin", "index.js");
+
   beforeEach(function() {
-    this.command = [pathToCLI];
+    this.command = [pathToCLI, "-p", "angular"];
   });
 
   it("should not throw an error with a valid commit message", function(done) {
+    this.timeout(10000);
     this.command.push('"chore: foo"');
 
     let command = this.command.join(" ");
@@ -28,6 +26,7 @@ describe("cli", function() {
   });
 
   it("should throw an error with an invalid commit message", function() {
+    this.timeout(10000);
     this.command.push('"foo"');
 
     let command = this.command.join(" ");

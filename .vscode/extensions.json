@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "bat67.markdown-extension-pack",
+    "maty.vscode-mocha-sidebar"
+  ]
+}

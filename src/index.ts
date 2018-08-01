@@ -1,16 +1,17 @@
 import * as fs from "fs";
 
 import { Opts, Preset, Presets } from "./interfaces";
-
-import { angular, atom, ember, eslint, jquery, jshint } from "./presets";
+import * as helpers from "./helpers";
+import { angular, atom, ember, eslint, jquery, jshint, semver } from "./presets";
 
 const presets: Presets = {
   angular,
   atom,
-  eslint,
   ember,
+  eslint,
   jquery,
-  jshint
+  jshint,
+  semver
 };
 
 /**
@@ -26,9 +27,9 @@ function validateMessage(message: string, options: Opts = {}): boolean {
 
   message = message.trim();
 
-  options = (<any>Object).assign(
+  options = (Object as any).assign(
     {
-      preset: "angular"
+      preset: "semver"
     },
     options
   );
@@ -77,4 +78,4 @@ function validateMessageFromFile(file: string, options: Opts = {}): boolean {
 
 export default presets;
 
-export { validateMessage, validateMessageFromFile };
+export { helpers, validateMessage, validateMessageFromFile };

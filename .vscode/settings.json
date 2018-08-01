@@ -1,4 +1,9 @@
 {
-  "favorites.sortDirection": "ASC",
-  "favorites.groupsFirst": true
+  "editor.formatOnSave": false,
+  "eslint.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onSave",
+  "tslint.enable": true,
+  "markdown.previewFrontMatter": "show",
+  "markdown.preview.scrollEditorWithPreview": true
 }

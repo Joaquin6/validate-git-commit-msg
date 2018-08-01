@@ -1,0 +1,3 @@
+--require babel-core/register
+--require test/test-setup.js
+--globals sinon,expect,process

@@ -4,15 +4,6 @@ import { log } from "../helpers";
 
 export const angular: Preset = {
   validate(message: string): boolean {
-    /**
-     * Git COMMIT-MSG hook for validating commit message
-     * See https://docs.google.com/document/d/1rk04jEuGfk9kYzfqCuOlPTSJw3hEDZJTBN5E5f1SALo/edit
-     *
-     * Taken from https://github.com/angular/angular.js/blob/master/validate-commit-msg.js
-     * and cleaned up a bit
-     *
-     * Thanks to the Angular team!
-     */
     const MAX_LENGTH: number = 100;
     const PATTERN: RegExp = /^(?:fixup!\s*)?(\w*)(\(([\w\$\.\*/-]*)\))?\: (.*)$/;
     const TYPES: any = {

@@ -4,3 +4,4 @@ export * from "./ember";
 export * from "./eslint";
 export * from "./jquery";
 export * from "./jshint";
+export * from "./semver";

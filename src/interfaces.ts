@@ -1,4 +1,4 @@
-export type PresetTypes = "angular" | "atom" | "ember" | "eslint" | "jquery" | "jshint";
+export type PresetTypes = "angular" | "atom" | "ember" | "eslint" | "jquery" | "jshint" | "semver";
 
 export type Severity = "error" | "warn" | "info" | "debug";
 
